@@ -1,0 +1,143 @@
+/* ----------------------- F O N T S ---------------------------------- */
+
+@font-face {
+    font-family: 'aqille';
+    src: url('fonts/aqillepersonaluse-webfont.woff2') format('woff2'),
+         url('fonts/aqillepersonaluse-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'caviar_dreamsregular';
+    src: url('fonts/caviardreams-webfont.woff2') format('woff2'),
+         url('fonts/caviardreams-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'caviar_dreamsbold';
+    src: url('fonts/caviardreams_bold-webfont.woff2') format('woff2'),
+         url('fonts/caviardreams_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'caviar_dreamsbold_italic';
+    src: url('fonts/caviardreams_bolditalic-webfont.woff2') format('woff2'),
+         url('fonts/caviardreams_bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'caviar_dreamsitalic';
+    src: url('fonts/caviardreams_italic-webfont.woff2') format('woff2'),
+         url('fonts/caviardreams_italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* -------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    font-family: 'caviar_dreamsbold';
+}
+
+a:link, a:visited {
+    color: pink;
+    text-decoration: none;
+}
+
+a:hover {
+    color: palevioletred;
+}
+
+body {
+    display: flex;
+}
+
+/* ----------------- A S I D E ------------------- */
+.aside {
+    flex: 1;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: url('img/bg.jpg') left no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.aside > :first-child {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: white;
+}
+
+.aside > :first-child > h1 {
+    width: 100%;
+    padding: 10% 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.600);
+    /* background-color: rgba(216, 112, 147, 0.418); */
+    font-family: 'aqille', sans-serif;
+    font-size: 5rem;
+    font-weight: 100;
+    text-shadow: 0px 0px 5px white;
+}
+
+
+.aside > :last-child {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+}
+
+.aside :last-child > p {
+    width: 100%;
+    padding: 1%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.600);
+    background-color: rgba(216, 112, 147, 0.218);
+    font-family: 'caviar_dreamsregular';
+    /* font-weight: 900; */
+}
+
+/* ----------------- M A I N ------------------- */
+
+main {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main > *:not(form),
+form > * {
+    margin: 0 10% 0 3%;
+    max-width: 700px;
+}
+
+form {
+    background-color: rgba(216, 112, 147, 0.218);
+}
+
