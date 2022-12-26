@@ -9,40 +9,14 @@
 }
 
 @font-face {
-    font-family: 'caviar_dreamsregular';
-    src: url('fonts/caviardreams-webfont.woff2') format('woff2'),
-         url('fonts/caviardreams-webfont.woff') format('woff');
+    font-family: 'spaziel_serif_roundmedium';
+    src: url('fonts/spazielserifround-webfont.woff2') format('woff2'),
+         url('fonts/spazielserifround-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
 }
 
-@font-face {
-    font-family: 'caviar_dreamsbold';
-    src: url('fonts/caviardreams_bold-webfont.woff2') format('woff2'),
-         url('fonts/caviardreams_bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'caviar_dreamsbold_italic';
-    src: url('fonts/caviardreams_bolditalic-webfont.woff2') format('woff2'),
-         url('fonts/caviardreams_bolditalic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'caviar_dreamsitalic';
-    src: url('fonts/caviardreams_italic-webfont.woff2') format('woff2'),
-         url('fonts/caviardreams_italic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
 
 /* -------------------------------------------------------------------- */
 * {
@@ -51,12 +25,8 @@
     box-sizing: border-box;
 }
 
-a {
-    font-family: 'caviar_dreamsbold';
-}
-
 a:link, a:visited {
-    color: pink;
+    color: #965a6e;
     text-decoration: none;
 }
 
@@ -66,16 +36,15 @@ a:hover {
 
 body {
     display: flex;
+    font-family: 'spaziel_serif_roundmedium', serif;
 }
 
 /* ----------------- A S I D E ------------------- */
 .aside {
     flex: 1;
     height: 100vh;
-
     display: flex;
     flex-direction: column;
-
     background: url('img/bg.jpg') left no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -87,7 +56,6 @@ body {
     flex: 3;
     display: flex;
     align-items: center;
-    width: 100%;
     color: white;
 }
 
@@ -95,8 +63,11 @@ body {
     width: 100%;
     padding: 10% 0;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.600);
     /* background-color: rgba(216, 112, 147, 0.418); */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.420), 
+                                          rgba(20, 0, 0, 0.850) 20% 80%, 
+                                          rgba(0, 0, 0, 0.620));
+
     font-family: 'aqille', sans-serif;
     font-size: 5rem;
     font-weight: 100;
@@ -109,17 +80,16 @@ body {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    color: white;
+    color: #ffffffb7;
 }
 
-.aside :last-child > p {
+.aside > :last-child > p {
     width: 100%;
     padding: 1%;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.600);
-    background-color: rgba(216, 112, 147, 0.218);
-    font-family: 'caviar_dreamsregular';
-    /* font-weight: 900; */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.420), 
+                                          rgba(20, 0, 0, 0.850) 20% 80%, 
+                                          rgba(0, 0, 0, 0.620));
 }
 
 /* ----------------- M A I N ------------------- */
@@ -128,16 +98,122 @@ main {
     flex: 2;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: rgba(196, 151, 166, 0.050);
 }
 
-main > *:not(form),
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: auto 0;
+    padding: 15vh 0;
+}
+
+.main-wrapper > header p {
+    padding-bottom: 1rem;
+    font-weight: 900;
+}
+
+.main-wrapper > *:not(form),
 form > * {
-    margin: 0 10% 0 3%;
-    max-width: 700px;
+    margin-left: 3%;
+    max-width: 600px;
 }
 
 form {
-    background-color: rgba(216, 112, 147, 0.218);
+    background-color: rgba(216, 112, 147, 0.13);
+    /* background-color: rgba(196, 151, 166, 0.250); */
+    box-shadow: 0.1rem 0.2rem 5px rgba(70, 65, 66, 0.541);
+    padding: 1rem 0;
 }
 
+fieldset {
+    border: none;
+}
+
+legend {
+    font-weight: 900;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* label & input */
+.field {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem 2rem;
+}
+
+/* input and (in)valid icon */
+.field > div {
+    display: flex;
+    gap: 0.3rem;
+}
+
+
+input,
+input:valid {
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    border: 0.1rem solid #8d475e56;
+}
+
+input:focus,
+input:active {
+    outline: 0.1rem solid #9b9ba5;
+    border: 0.1rem solid transparent;
+    box-shadow: 0 0 5px #8a747b;
+}
+
+span {
+    position: relative;
+}
+
+/* show red border only AFTER typing */
+input:invalid:not(:focus):not(:placeholder-shown) {
+    border: 0.1rem solid transparent;
+    box-shadow: 0 0 4px red;
+}
+
+/* show icon only AFTER typing */
+input:invalid:not(:focus):not(:placeholder-shown) + span::before {
+    content: "✖";
+    color: red;
+    position: absolute;
+    top: 0.45rem;
+}
+
+input:valid + span::before {
+    content: "✓";
+    color: green;
+    position: absolute;
+    top: 0.45rem;
+}
+
+
+button[type='submit'] {
+    width: fit-content;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 0.2rem;
+    font-family: 'spaziel_serif_roundmedium', serif;
+    font-weight: 500;
+    font-size: 1rem;
+    background-color: #8d475e;
+    color: #ffeded;
+    box-shadow: 0.1rem 0.1rem 2px rgba(70, 65, 66, 0.540);
+}
+
+button:focus,
+button:active,
+button:hover {
+    outline: none;
+    box-shadow: 0.1rem 0.1rem 2px rgba(70, 65, 66, 0.540),
+                0 0 0.3rem 2px #8a747b;
+    font-weight: 900;
+}
