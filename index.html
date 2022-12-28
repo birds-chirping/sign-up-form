@@ -33,14 +33,14 @@
                     <legend>Let's do this!</legend>
                     <div class="form-row">
                         <div class="field">
-                            <label for="firstname">FIRST NAME *</label>
+                            <label for="firstname">FIRST NAME*</label>
                             <div>
                                 <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
                                 <span></span>
                             </div>
                         </div>
                         <div class="field">
-                            <label for="lastname">LAST NAME *</label>
+                            <label for="lastname">LAST NAME*</label>
                             <div>
                                 <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
                                 <span></span>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="form-row">
                         <div class="field">
-                            <label for="email">EMAIL *</label>
+                            <label for="email">EMAIL*</label>
                             <div>
                                 <input type="email" id="email" name="email" placeholder="jane@example.com" required>
                                 <span></span>
@@ -57,18 +57,22 @@
                         </div>
                         <div class="field">
                             <label for="phonenum">PHONE NUMBER</label>
-                            <input type="tel" id="phonenum" name="phone"></div>
+                            <div>
+                                <input type="tel" id="phonenum" name="phone" pattern="\d{4,15}" placeholder='optional' maxlength="15">
+                                <span></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-row">
                         <div class="field">
-                            <label for="psw">PASSWORD *</label>
+                            <label for="psw">PASSWORD*</label>
                             <div>
                                 <input type="password" id="psw" name="password" placeholder="Choose password" required>
                                 <span></span>
                             </div>
                         </div>
                         <div class="field">
-                            <label for="confirmed-psw">CONFIRM PASSWORD *</label>
+                            <label for="confirmed-psw">CONFIRM PASSWORD*</label>
                             <div>
                                 <input type="password" id="confirmed-psw" name="password" placeholder="Confirm password"  required>
                                 <span></span>
@@ -79,7 +83,7 @@
             </form>
 
             <button form="register" type="submit">Create account</button>
-            
+
             <p>Already have an account? <a href="#">Log in</a></p>
         </div>
     </main>    
