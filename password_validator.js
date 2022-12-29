@@ -1,6 +1,6 @@
 const psw = document.getElementById('psw');
 const confPsw = document.getElementById('confirmed-psw');
-const pswRules = document.querySelector('.psw-rules').style;
+const pswRules = document.querySelector('.psw-rules');
 const rules = document.querySelectorAll('li');
 const inputs = document.querySelectorAll('input');
 const color_valid = 'green';
@@ -9,27 +9,42 @@ const color_invalid = '#4d4d4d';
 
 function togglePswRules() {
     if (this.id === 'psw') {
-        pswRules.visibility = 'visible';
+        pswRules.style.visibility = 'visible';
     } else if (this.id !== 'confirmed-psw') {
-        pswRules.visibility = 'hidden';
+        pswRules.style.visibility = 'hidden';
+        rules.forEach( (rule) => { 
+            if (rule.firstChild.style.visibility == 'visible') {
+                rule.firstChild.style.visibility = 'inherit';
+            }
+        });
     }
+}
+
+
+function check(statement) {
+    statement.style.fontWeight = '900';
+    statement.style.color = color_valid; 
+    statement.firstChild.style.visibility = 'visible';
+}
+
+function uncheck(statement) {
+    statement.style.fontWeight = '400';
+    statement.style.color = color_invalid; 
+    statement.firstChild.style.visibility = 'hidden';
 }
 
 function checkPsw() {
-    (/(?=.*?[a-z])/).test(psw.value) ? rules[0].style.color = color_valid : rules[0].style.color = color_invalid;
-    (/(?=.*?[A-Z])/).test(psw.value) ? rules[1].style.color = color_valid : rules[1].style.color = color_invalid;
-    (/(?=.*?\d)/).test(psw.value) ? rules[2].style.color = color_valid : rules[2].style.color = color_invalid;
-    (/(?=.{8,})/).test(psw.value) ? rules[3].style.color = color_valid : rules[3].style.color = color_invalid;
-    
+    (/(?=.*?[a-z])/).test(psw.value) ? check(rules[0]) : uncheck(rules[0]);
+    (/(?=.*?[A-Z])/).test(psw.value) ? check(rules[1]) : uncheck(rules[1]);
+    (/(?=.*?\d)/).test(psw.value) ? check(rules[2]) : uncheck(rules[2]);
+    (/(?=.{8,})/).test(psw.value) ? check(rules[3]) : uncheck(rules[3]);
+    (psw.value === confPsw.value && psw.value) ? check(rules[4]) : uncheck(rules[4]);
     confPsw.setAttribute('pattern', psw.value);
 }
 
+
 function checkConfPsw() {
-    if (psw.value === confPsw.value && psw.value) {
-        rules[4].style.color = color_valid;
-    } else {
-        rules[4].style.color = color_invalid;
-    }
+    (psw.value === confPsw.value && psw.value) ? check(rules[4]) : uncheck(rules[4]);
 }
 
 

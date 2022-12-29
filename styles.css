@@ -142,6 +142,7 @@ main {
 .main-wrapper > *:not(form),
 form > * {
     margin-left: 3%;
+    margin-right: 3%;
     max-width: 600px;
 }
 
@@ -152,7 +153,7 @@ form {
     padding: 1rem 0;
     background-color: rgb(255, 253, 253);
     box-shadow: 0.2vmin 0.4vmin 5px rgb(27, 27, 27);
-    font-family: 'altone_bold', Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'altone', Verdana, Geneva, Tahoma, sans-serif;
     color: var(--form-text-color);
 }
 
@@ -200,7 +201,7 @@ input:active {
     box-shadow: 0 0 5px #8a747b;
 }
 
-span {
+.field span {
     position: relative;
 }
 
@@ -228,21 +229,24 @@ input:valid:not(:placeholder-shown) + span::before {
 .psw-rules {
     color: var(--psw-rules-color);
     visibility: hidden;
-    padding: 1rem 5rem 1rem 3rem;
+    padding: 1rem 2rem;
     align-self: flex-end;
+    font-family: 'spaziel_serif_roundmedium', serif;
 }
 
-.psw-rules > p {
-    font-weight: 600;
-    font-style: italic;
-}
 
 .psw-rules > li {
-    /* font-style: italic; */
+    font-style: italic;
     line-height: 95%;
     font-size: 0.9rem;
     padding-left: 2rem;
     list-style-type:  none;
+    display: flex;
+}
+
+.psw-rules > li > span {
+    color: green;
+    visibility: hidden;
 }
 
 button[type='submit'] {
@@ -285,7 +289,10 @@ button:hover {
 
     .cover > :last-child {
         flex: none;
+        writing-mode: vertical-lr;
+        align-self: flex-end;
     }
+
     .cover > :last-child p {
         text-align: end;
         font-size: 0.8rem;
