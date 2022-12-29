@@ -1,5 +1,9 @@
 :root {
-    --submit-button: #ff430a;
+    --main-text-color: #fff6f1;
+    --psw-rules-color: #5f5f5f;
+    --submit-button-color: #ff430a;
+    --main-font-size: 1.3rem;
+    --form-text-color: rgb(87, 87, 87);
 }
 
 /* ----------------------- F O N T S ---------------------------------- */
@@ -18,7 +22,22 @@
          url('fonts/spazielserifround-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
 
+@font-face {
+    font-family: 'altone';
+    src: url('fonts/altonetrial-regular-webfont.woff2') format('woff2'),
+         url('fonts/altonetrial-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'altone_bold';
+    src: url('fonts/altonetrial-bold-webfont.woff2') format('woff2'),
+         url('fonts/altonetrial-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 
@@ -45,8 +64,8 @@ body {
     font-family: 'spaziel_serif_roundmedium', serif;
 }
 
-/* ----------------- A S I D E ------------------- */
-.aside {
+/* ----------------- C O V E R ------------------- */
+.cover {
     flex: 1;
     height: 100vh;
     display: flex;
@@ -58,14 +77,14 @@ body {
     background-size: cover;
 }
 
-.aside > :first-child {
+.cover > :first-child {
     flex: 1;
-    color: white;
 }
 
-.aside > :first-child > div {
+.cover > :first-child > div {
     width: 100%;
     margin: 5vmin 0 0 0;
+    color: white;
     text-align: center;
     font-family: 'aqille', sans-serif;
     font-size: 16vmin;
@@ -73,7 +92,7 @@ body {
     text-shadow: 0px 0px 4px white;
 }
 
-.aside > :last-child {
+.cover > :last-child {
     flex: 1;
     display: flex;
     align-items: flex-end;
@@ -81,7 +100,7 @@ body {
     color: #ffffffb7;
 }
 
-.aside > :last-child > p {
+.cover > :last-child > p {
     width: 100%;
     padding: 1%;
     text-align: center;
@@ -102,7 +121,7 @@ main {
                                             rgba(11, 63, 43, 0.970),
                                             rgba(11, 63, 43, 0.920),
                                             rgba(6, 22, 15, 0.920));
-    color: #fff6f1;
+    color: var(--main-text-color);
 }
 
 .main-wrapper {
@@ -116,8 +135,9 @@ main {
 .main-wrapper > header p {
     padding-bottom: 1rem;
     font-weight: 900;
-    font-size: 1.3rem;
+    font-size: var(--main-font-size);
 }
+
 
 .main-wrapper > *:not(form),
 form > * {
@@ -126,28 +146,28 @@ form > * {
 }
 
 form {
-    background-color: rgb(255, 253, 253);
-    color: black;
-    box-shadow: 0.2vmin 0.4vmin 5px rgb(27, 27, 27);
-    padding: 1rem 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 1rem 0;
+    background-color: rgb(255, 253, 253);
+    box-shadow: 0.2vmin 0.4vmin 5px rgb(27, 27, 27);
+    font-family: 'altone_bold', Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--form-text-color);
 }
 
 fieldset {
     border: none;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 legend {
     font-weight: 900;
+    font-family: 'spaziel_serif_roundmedium', serif;
+    padding: 0.75rem;
 }
 
-.form-row {
-    display: flex;
-    flex-wrap: wrap;
-}
 
 /* label & input */
 .field {
@@ -166,14 +186,11 @@ input[placeholder='optional']::placeholder {
     font-style: italic;
 }
 
-
 input,
 input:valid {
     padding: 0.5rem;
     border-radius: 0.2rem;
     border: 0.1rem solid #614d5456;
-
-
 }
 
 input:focus,
@@ -181,7 +198,6 @@ input:active {
     outline: 0.1rem solid #9b9ba5;
     border: 0.1rem solid transparent;
     box-shadow: 0 0 5px #8a747b;
-
 }
 
 span {
@@ -210,9 +226,9 @@ input:valid:not(:placeholder-shown) + span::before {
 }
 
 .psw-rules {
-    color: #4d4d4d;
+    color: var(--psw-rules-color);
     visibility: hidden;
-    padding: 0 5rem 1rem 3rem;
+    padding: 1rem 5rem 1rem 3rem;
     align-self: flex-end;
 }
 
@@ -223,7 +239,7 @@ input:valid:not(:placeholder-shown) + span::before {
 
 .psw-rules > li {
     /* font-style: italic; */
-    line-height: 90%;
+    line-height: 95%;
     font-size: 0.9rem;
     padding-left: 2rem;
     list-style-type:  none;
@@ -235,10 +251,10 @@ button[type='submit'] {
     border: none;
     border-radius: 0.2rem;
     font-family: 'spaziel_serif_roundmedium', serif;
-    font-weight: 500;
-    font-size: 1rem;
-    background-color: var(--submit-button);
-    color: #ffeded;
+    font-weight: 400;
+    font-size: 1.1rem;
+    background-color: var(--submit-button-color);
+    color: var(--main-text-color);
     box-shadow: 0.15vmin 0.15vmin 5px rgba(27,27,27);
 }
 
@@ -262,32 +278,26 @@ button:hover {
         padding: 2rem 0;
     }
 
-    .aside {
+    .cover {
         height: 100vmin;
         flex: none;
     }
 
-    .aside > :last-child {
+    .cover > :last-child {
         flex: none;
     }
-    .aside > :last-child p {
+    .cover > :last-child p {
         text-align: end;
         font-size: 0.8rem;
         padding: 0;
     }
 
     form {
-        display: flex;
         flex-direction: column;
     }
 
-    .psw-rules {
-        align-self: center;
-    }
-
-    .form-row {
+    fieldset {
         flex-direction: column;
-        align-items: stretch;
     }
 
     .field {
@@ -305,6 +315,7 @@ button:hover {
         flex: 1;
     }
 
+    .psw-rules,
     button,
     .main-wrapper p {
         align-self: center;
