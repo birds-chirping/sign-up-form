@@ -24,22 +24,6 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'altone';
-    src: url('fonts/altonetrial-regular-webfont.woff2') format('woff2'),
-         url('fonts/altonetrial-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'altone_bold';
-    src: url('fonts/altonetrial-bold-webfont.woff2') format('woff2'),
-         url('fonts/altonetrial-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
 
 /* -------------------------------------------------------------------- */
 * {
@@ -153,7 +137,7 @@ form {
     padding: 1rem 0;
     background-color: rgb(255, 253, 253);
     box-shadow: 0.2vmin 0.4vmin 5px rgb(27, 27, 27);
-    font-family: 'altone', Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
     color: var(--form-text-color);
 }
 
@@ -165,7 +149,6 @@ fieldset {
 
 legend {
     font-weight: 900;
-    font-family: 'spaziel_serif_roundmedium', serif;
     padding: 0.75rem;
 }
 
@@ -231,16 +214,15 @@ input:valid:not(:placeholder-shown) + span::before {
     visibility: hidden;
     padding: 1rem 2rem;
     align-self: flex-end;
-    font-family: 'spaziel_serif_roundmedium', serif;
+    font-weight: 400;
 }
 
 
 .psw-rules > li {
     font-style: italic;
     line-height: 95%;
-    font-size: 0.9rem;
     padding-left: 2rem;
-    list-style-type:  none;
+    list-style-type: none;
     display: flex;
 }
 
@@ -267,10 +249,9 @@ button:active,
 button:hover {
     outline: none;
     box-shadow: 0vmin 0vmin 1px rgb(216, 76, 104),
-                0 0 0.9vmin 1px #8a747b;
+                0 0 2vmin #8a747b;
     font-weight: 900;
 }
-/*#ff5f2f; */
 
 
 @media screen and (max-width: 830px) {
