@@ -3,15 +3,17 @@ const confPsw = document.getElementById('confirmed-psw');
 const pswRules = document.querySelector('.psw-rules');
 const rules = document.querySelectorAll('li');
 const inputs = document.querySelectorAll('input');
-const color_valid = 'green';
-const color_invalid = '#4d4d4d';
+const color_valid = getComputedStyle(document.documentElement).getPropertyValue('--form-valid-color');
+const color_invalid = getComputedStyle(document.documentElement).getPropertyValue('--form-pswrules-color');
 
 
 function togglePswRules() {
     if (this.id === 'psw') {
         pswRules.style.visibility = 'visible';
+        // pswRules.style.display = 'block';
     } else if (this.id !== 'confirmed-psw') {
         pswRules.style.visibility = 'hidden';
+        // pswRules.style.display = 'none';
         rules.forEach( (rule) => { 
             if (rule.firstChild.style.visibility == 'visible') {
                 rule.firstChild.style.visibility = 'inherit';
@@ -52,7 +54,7 @@ function checkConfPsw() {
 // Hide when other input fields are clicked (except 'Confirm password')
 
 inputs.forEach((e) => {
-    e.addEventListener('click', togglePswRules) 
+    e.addEventListener('focus', togglePswRules) 
 });
 
 

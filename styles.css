@@ -1,9 +1,11 @@
 :root {
     --main-text-color: #fff6f1;
-    --psw-rules-color: #5f5f5f;
-    --submit-button-color: #ff430a;
     --main-font-size: 1.3rem;
-    --form-text-color: rgb(87, 87, 87);
+    --form-text-color: #575757;
+    --form-valid-color: #37aa7e;
+    --form-invalid-color: #cc4170;
+    --form-pswrules-color: #4d4d4d;
+    --submit-button-color: #ff430a;
 }
 
 /* ----------------------- F O N T S ---------------------------------- */
@@ -145,6 +147,7 @@ fieldset {
     border: none;
     display: flex;
     flex-wrap: wrap;
+    /* border-bottom: 1px dashed orangered; */
 }
 
 legend {
@@ -191,26 +194,28 @@ input:active {
 /* show red border only AFTER typing */
 input:invalid:not(:focus):not(:placeholder-shown) {
     border: 0.1rem solid transparent;
-    box-shadow: 0 0 4px red;
+    box-shadow: 0 0 4px var(--form-invalid-color);
+
 }
 
 /* show icon only AFTER typing */
 input:invalid:not(:focus):not(:placeholder-shown) + span::before {
     content: "✖";
-    color: red;
+    color: var(--form-invalid-color);
     position: absolute;
     top: 0.45rem;
 }
 
 input:valid:not(:placeholder-shown) + span::before {
     content: "✓";
-    color: green;
+    color: var(--form-valid-color);
     position: absolute;
     top: 0.45rem;
 }
 
 .psw-rules {
-    color: var(--psw-rules-color);
+    color: var(--form-pswrules-color);
+    /* display: none; */
     visibility: hidden;
     padding: 1rem 2rem;
     align-self: flex-end;
@@ -227,7 +232,7 @@ input:valid:not(:placeholder-shown) + span::before {
 }
 
 .psw-rules > li > span {
-    color: green;
+    color: var(--form-valid-color);
     visibility: hidden;
 }
 
