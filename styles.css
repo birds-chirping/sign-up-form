@@ -108,6 +108,7 @@ main {
                                             rgba(11, 63, 43, 0.920),
                                             rgba(6, 22, 15, 0.920));
     color: var(--main-text-color);
+    /* border: 1px solid red; */
 }
 
 .main-wrapper {
@@ -115,7 +116,7 @@ main {
     flex-direction: column;
     gap: 1.5rem;
     margin: auto 0;
-    padding: 15vh 0;
+    /* border: 1px solid red; */
 }
 
 .main-wrapper > header p {
@@ -147,7 +148,6 @@ fieldset {
     border: none;
     display: flex;
     flex-wrap: wrap;
-    /* border-bottom: 1px dashed orangered; */
 }
 
 legend {
@@ -195,7 +195,6 @@ input:active {
 input:invalid:not(:focus):not(:placeholder-shown) {
     border: 0.1rem solid transparent;
     box-shadow: 0 0 4px var(--form-invalid-color);
-
 }
 
 /* show icon only AFTER typing */
@@ -258,6 +257,15 @@ button:hover {
     font-weight: 900;
 }
 
+.git {
+    gap: 0.3rem;
+    align-self: center;
+    padding: 1%;
+}
+
+.github-icon {
+    max-height: 1.3rem;
+}
 
 @media screen and (max-width: 830px) {
     body {
