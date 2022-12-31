@@ -10,10 +10,8 @@ const color_invalid = getComputedStyle(document.documentElement).getPropertyValu
 function togglePswRules() {
     if (this.id === 'psw') {
         pswRules.style.visibility = 'visible';
-        // pswRules.style.display = 'block';
     } else if (this.id !== 'confirmed-psw') {
         pswRules.style.visibility = 'hidden';
-        // pswRules.style.display = 'none';
         rules.forEach( (rule) => { 
             if (rule.firstChild.style.visibility == 'visible') {
                 rule.firstChild.style.visibility = 'inherit';

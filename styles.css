@@ -122,6 +122,7 @@ main {
     padding-bottom: 1rem;
     font-weight: 900;
     font-size: var(--main-font-size);
+    max-width: clamp(45%, 600px, 100%);
 }
 
 
@@ -129,12 +130,11 @@ main {
 form > * {
     margin-left: 3%;
     margin-right: 3%;
-    max-width: fit-content;
 }
 
 form {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 1rem 0 2rem;
     background-color: rgb(255, 253, 253);
     box-shadow: 0.2vmin 0.4vmin 5px rgb(27, 27, 27);
@@ -143,10 +143,8 @@ form {
 }
 
 fieldset {
-    flex: 1.5;
-    flex-wrap: wrap;
     display: flex;
-    justify-content: center;
+    justify-content: stretch;
     border: none;
 }
 
@@ -156,6 +154,11 @@ legend {
 }
 
 /* -------------------- input -------------------- */
+.fields-wrapper {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+}
 
 /* label & input */
 .field {
@@ -179,6 +182,7 @@ input:valid {
     padding: 0.5rem;
     border-radius: 0.2rem;
     border: 0.1rem solid #614d5456;
+    height: fit-content;
 }
 
 input:focus,
@@ -218,10 +222,9 @@ input:valid:not(:placeholder-shown) + span::before {
     flex: 1;
     justify-self: flex-start;
     align-self: flex-end;
-    /* display: none; */
     visibility: hidden;
     padding: 1rem 2rem;
-    padding: 1rem 2rem 2rem 0;
+    padding: 1rem 2rem 0.75rem 0;
     font-weight: 400;
     color: var(--form-pswrules-color);
 }
@@ -241,6 +244,9 @@ input:valid:not(:placeholder-shown) + span::before {
 
 
 /* --------------- submit button ------------------ */
+.btn {
+    padding: 1rem 2rem;
+}
 
 button[type='submit'] {
     width: fit-content;
@@ -259,8 +265,9 @@ button:focus,
 button:active,
 button:hover {
     outline: none;
-    box-shadow: 0vmin 0vmin 1px rgb(216, 76, 104),
-                0 0 2vmin #8a747b;
+    box-shadow: 0vmin 0vmin 1px var(--a-link-color),
+                0 0 2vmin var(--a-hover-color),
+                0.1vmin 0.1vmin 5px rgba(27, 27, 27, 0.550);
     font-weight: 900;
 }
 
@@ -307,11 +314,14 @@ button:hover {
     }
 
     form {
-        flex-direction: column;
         padding-bottom: 1rem;
     }
 
     fieldset {
+        flex-direction: column;
+    }
+
+    .fields-wrapper {
         flex-direction: column;
     }
 
@@ -330,14 +340,17 @@ button:hover {
         flex: 1;
     }
 
-    button,
     .main-wrapper p {
         align-self: center;
     }
 
     .psw-rules {
-        align-self: baseline;
+        align-self: center;
         padding: 0 1rem 0 0;
+    }
+
+    .btn {
+        margin: auto;
     }
 }
 
