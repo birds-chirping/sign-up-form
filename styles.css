@@ -126,6 +126,10 @@ main {
 }
 
 
+.main-wrapper > header {
+    padding-top: 2rem;
+}
+
 .main-wrapper > *:not(form),
 form > * {
     margin-left: 3%;
@@ -146,6 +150,7 @@ fieldset {
     display: flex;
     justify-content: stretch;
     border: none;
+    flex-wrap: wrap;
 }
 
 legend {
@@ -155,9 +160,10 @@ legend {
 
 /* -------------------- input -------------------- */
 .fields-wrapper {
-    flex: 1;
+    flex: 1 1 600px;
     display: flex;
     flex-wrap: wrap;
+    max-width: 600px;
 }
 
 /* label & input */
@@ -219,7 +225,7 @@ input:valid:not(:placeholder-shown) + span::before {
 
 /* ------------- password rules ------------------ */
 .psw-rules {
-    flex: 1;
+    flex: 1 1 300px;
     justify-self: flex-start;
     align-self: flex-end;
     visibility: hidden;
@@ -249,7 +255,7 @@ input:valid:not(:placeholder-shown) + span::before {
 }
 
 button[type='submit'] {
-    width: fit-content;
+    width: 12rem;
     padding: 0.5rem 1.5rem;
     border: none;
     border-radius: 0.2rem;
@@ -268,7 +274,7 @@ button:hover {
     box-shadow: 0vmin 0vmin 1px var(--a-link-color),
                 0 0 2vmin var(--a-hover-color),
                 0.1vmin 0.1vmin 5px rgba(27, 27, 27, 0.550);
-    font-weight: 900;
+    font-weight: 700;
 }
 
 
@@ -277,7 +283,7 @@ button:hover {
 .git {
     gap: 0.3rem;
     align-self: center;
-    padding: 1%;
+    padding: 1rem;
 }
 
 .github-icon {
@@ -322,6 +328,7 @@ button:hover {
     }
 
     .fields-wrapper {
+        flex: 1;
         flex-direction: column;
     }
 
@@ -345,6 +352,7 @@ button:hover {
     }
 
     .psw-rules {
+        flex: 1;
         align-self: center;
         padding: 0 1rem 0 0;
     }
